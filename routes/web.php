@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TaskController;
+use Inertia\Inertia;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,16 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Inertia::render('Tasks/Create');
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [TaskController::class, 'get'])->name('home');
 
 Route::get('/dashboard', function(){
     return view('dashboard');
@@ -32,3 +29,4 @@ Route::get('/dashboard', function(){
 Route::get('/task-list', [TaskController::class, 'get'])->name('tasklist');
 
 Route::post('/add-task', [TaskController::class, 'add']);
+

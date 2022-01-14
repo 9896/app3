@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Lucid\Units\Controller;
 use App\Features\AddTaskFeature;
 use App\Features\GetTasksFeature;
+use Inertia\Inertia;
 
 class TaskController extends Controller
 {
@@ -22,7 +23,12 @@ class TaskController extends Controller
      */
     public function get(){
 
-        return $this->serve(GetTasksFeature::class);
+        //return $this->serve(GetTasksFeature::class);
+
+        return Inertia::render('Tasks/TaskList', [
+            'name' => 'Israel'
+        ]);
+
         
     }
 }
