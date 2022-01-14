@@ -184,6 +184,7 @@
             <div class="md:w-1/3"></div>
             <div class="md:w-2/3">
               <button
+                :disabled="form.processing"
                 type="submit"
                 class="
                   shadow

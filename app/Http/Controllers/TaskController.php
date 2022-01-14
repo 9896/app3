@@ -23,12 +23,7 @@ class TaskController extends Controller
      */
     public function get(){
 
-        //return $this->serve(GetTasksFeature::class);
-
-        return Inertia::render('Tasks/TaskList', [
-            'name' => 'Israel'
-        ]);
-
-        
+       
+        return $this->serve(GetTasksFeature::class);     
     }
 }

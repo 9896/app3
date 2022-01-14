@@ -20,8 +20,6 @@ Route::get('/', function () {
 
 
 
-//Route::get('/home', [TaskController::class, 'get'])->name('home');
-
 Route::get('/dashboard', function(){
     return view('dashboard');
 })->name('dashboard');

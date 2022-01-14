@@ -85,7 +85,7 @@
           Create Task</Link
         >
         <!-- Task list table -->
-        <div class="flex flex-col">
+        <div class="flex flex-col" v-if="tasks.length > 1">
           <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div
               class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
@@ -146,18 +146,18 @@
                     </tr>
                   </thead>
                   <tbody class="bg-white divide-y divide-gray-200">
-                    <tr>
+                    <tr v-for="task in tasks" :key="task.id">
                       <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center">
                           <div class="ml-4">
                             <div class="text-sm font-medium text-gray-900">
-                              hehe
+                              {{task.title}}
                             </div>
                           </div>
                         </div>
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-900">hehe</div>
+                        <div class="text-sm text-gray-900">{{ task.description }}</div>
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap">
                         <span
@@ -172,7 +172,7 @@
                             text-green-800
                           "
                         >
-                          hehehe
+                          {{ task.created_at }}
                         </span>
                       </td>
                     </tr>
@@ -185,10 +185,11 @@
           </div>
         </div>
 
-        <p class="text-gray-400">
+        <p class="text-gray-400" v-if="tasks.length < 1">
           Oops! it seems you dont have any task. Click the create task button to
           create a new task
         </p>
+        <p>{{tasks.length}}</p>
       </div>
     </div>
   </div>
@@ -205,10 +206,4 @@ export default {
 
 };
 </script>
-</template>
 
-<script>
-export default {
-  props: ["name"],
-};
-</script>
