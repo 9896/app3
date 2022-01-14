@@ -2,6 +2,7 @@
 
 namespace App\Domains\Task\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AddTask extends FormRequest
@@ -13,7 +14,7 @@ class AddTask extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -25,6 +26,8 @@ class AddTask extends FormRequest
     {
         return [
             //
+            'title' => ['required'],
+            'description' => ['required']
         ];
     }
 }
